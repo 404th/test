@@ -32,7 +32,7 @@ function MainPage() {
     );
     try {
       if (response) {
-        setArticles(response.data.data);
+        setArticles(response.data.data.value);
       } else {
         throw new Error("Error: response not got");
       }
@@ -44,19 +44,15 @@ function MainPage() {
   }
 
   useEffect(() => {
+    console.log("myArticles");
     console.log(myArticles);
   }, [myArticles]);
 
   return (
     <div className={"art_container"}>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {myArticles?.map((item, idx) => {
+        return <Card item={item} key={idx} />;
+      })}
     </div>
   );
 }

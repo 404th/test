@@ -1,9 +1,9 @@
-import MainPage from "./containers/main/index";
+import Layout from "./layout";
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <Layout />
     </div>
   );
 }

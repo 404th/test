@@ -1,17 +1,17 @@
 import { Card } from "antd";
 import { NavLink } from "react-router-dom";
+import "./main.css";
 
-function CardPage() {
+function CardPage(props) {
   return (
     <div>
       <Card
-        title="Default size card"
-        extra={<NavLink to="/">More...</NavLink>}
+        className={"card_container"}
+        title={props.item.title}
+        extra={<NavLink to={`/article/${props.item._id}`}>More...</NavLink>}
         style={{ width: 300 }}
       >
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
+        <p className={"truncate"}>{props.item.body}</p>
       </Card>
     </div>
   );
